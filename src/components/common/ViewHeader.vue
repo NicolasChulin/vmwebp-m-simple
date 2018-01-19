@@ -1,14 +1,12 @@
 <template lang="html">
-  <div class="account">
-    <div class="view-content-top">
-      <h1>这是个人中心</h1>
-    </div>
+  <div class="view-header">
+    view-header
   </div>
 </template>
 
 <script>
 export default {
-  name: 'account'
+  name: 'view-header'
 }
 </script>
 

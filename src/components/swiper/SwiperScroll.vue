@@ -41,7 +41,6 @@ export default {
         resistanceRatio: 0,
         mousewheelControl: true,
         passiveListeners: false,
-        // freeModeMomentumBounceRatio: 0.5,
         roundLengths: true,
         observer: true,
         observeParents: true,

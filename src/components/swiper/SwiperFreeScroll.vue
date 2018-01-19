@@ -21,8 +21,6 @@ export default {
         resistanceRatio: 0,
         slidesPerView: 'auto',
         mousewheelControl: true,
-        // freeModeMomentumRatio: 0.5,
-        // freeModeMomentumBounceRatio: 0.5,
         freeModeMomentumBounce: false,
         freeModeMomentumVelocityRatio: 0.5,
         roundLengths: true,

@@ -22,7 +22,6 @@ Vue.use(VueLazyload, {
 Vue.prototype.GLOBAL = GLOBAL
 Vue.use(layout)
 
-
 /* axios.interceptors */
 var requeen = []
 var sett = ''
@@ -66,22 +65,6 @@ new Vue({
   router,
   template: '<App/>',
   components: { App }
-})
-
-/* request config */
-Vue.http.options.emulateJSON = true
-Vue.http.options.timeout = 3000
-Vue.http.interceptors.push((request, next) => {
-  // authend check
-
-  // add global api domain
-  if (request.url.indexOf('http://') < 0) {
-    request.url = GLOBAL.domain + request.url
-  }
-
-  next((response) => {
-    return response
-  })
 })
 
 /* regist routes hook */

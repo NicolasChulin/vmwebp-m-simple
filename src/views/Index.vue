@@ -1,43 +1,35 @@
 <template lang="html">
   <div class="index">
-    <view-header htitle="首页"></view-header>
+    <view-header></view-header>
     <div class="view-content">
       <h1>{{ msg }}</h1>
       <br>
-      <!-- <router-link to="/name">Go to name</router-link> -->
       <div class="msg" @click="say">
         点我谈一个消息
       </div>
     </div>
-    <view-footer mtype="Index"></view-footer>
+    <view-footer></view-footer>
   </div>
 </template>
 
 <script>
-import viewFooter from '@/components/common/Footer'
-import viewHeader from '@/components/common/Header'
+import ViewHeader from '@/components/common/ViewHeader'
+import ViewFooter from '@/components/common/ViewFooter'
 
 export default {
   name: 'index',
   data () {
     return {
-      msg: 'buoumall'
+      msg: 'hello world'
     }
   },
-  created () {
-    // this.$http.post('/v2/dynamic/list').then((rep) => {
-    //   console.log(rep.data)
-    // })
-    this.$ls.set('sto', 'new')
-  },
   components: {
-    viewFooter,
-    viewHeader
+    ViewFooter,
+    ViewHeader
   },
   methods: {
     say () {
-      // console.log(this)
-      this.layer.msg('1111')
+      this.$layout.msg('1111')
     }
   }
 }

@@ -42,7 +42,6 @@ export default {
         slidesPerView: 'auto',
         mousewheelControl: true,
         passiveListeners: false,
-        // freeModeMomentumBounceRatio: 0.5,
         roundLengths: true,
         observer: true,
         observeParents: true,
