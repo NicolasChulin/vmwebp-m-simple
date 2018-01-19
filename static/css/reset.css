@@ -1,0 +1,42 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, input, p, blockquote, tr, th, td {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+body {
+    font-size: 14px;
+    font-family: "Microsoft YaHei",Tahoma,Helvetica,Arial,sans-serif;
+    color: #333333;
+}
+li {
+    list-style: none;
+}
+em, i, u {
+    font-style: normal;
+}
+input {
+    outline: none;
+    border: none;
+    font-family: "Microsoft YaHei",Tahoma,Helvetica,Arial,sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+}
+fieldset, img {
+    border: 0;
+}
+abbr {
+    border: 0;
+    font-variant: normal;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+    *color: #999999;
+}
+
+img{
+    vertical-align: middle;
+}
