@@ -1,7 +1,10 @@
 import api from './api'
 
 export default {
-  list (datas, success, error) {
-    api._post('', datas, success, error)
+  look (datas) {
+    return api._post('/look/list', datas)
+  },
+  banners (datas) {
+    return api._post('/banner/v1/list', datas)
   }
 }

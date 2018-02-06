@@ -15,6 +15,7 @@
 <script>
 import ViewHeader from '@/components/common/ViewHeader'
 import ViewFooter from '@/components/common/ViewFooter'
+import homeApi from '@/apis/home'
 
 export default {
   name: 'index',
@@ -29,7 +30,12 @@ export default {
   },
   methods: {
     say () {
-      this.$layout.msg('1111')
+      homeApi.banners({
+        count: 5,
+        site: 4
+      }).then((rep) => {
+        console.log(rep)
+      })
     }
   }
 }

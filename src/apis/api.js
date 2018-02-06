@@ -8,8 +8,9 @@ Vue.use(layout)
 const errorCallback = function (error) {
   Vue.$layout.loadingHide()
   if (error.response) {
-    Vue.$layout.msg('网络错误，请稍后再试')
+    Vue.$layout.msg(error.response.data.msg || '网络错误，请稍后再试')
   }
+
   // if (error.response) {
   //   console.log(error.response)
   //   Vue.$layout.msg('网络错误，请稍后再试')
@@ -20,21 +21,96 @@ const errorCallback = function (error) {
   // }
 }
 
-const _get = (url, success, error = errorCallback) => {
-  axios.get(url).then(success).catch(error)
+// const _post = (url, datas, success, error = errorCallback) => {
+//   let sqDatas = qs.stringify(datas)
+//   axios.post(url, sqDatas).then(success).catch(error)
+// }
+
+// get
+const _get = (url, datas) => {
+  let sqDatas = ''
+  if (datas) {
+    sqDatas = qs.stringify(datas)
+    url += '?' + sqDatas
+  }
+  return new Promise((resolve, reject) => {
+    axios.get(url).then((rep) => {
+      resolve(rep.data)
+    }).catch((error) => {
+      errorCallback(error)
+      reject(error.response.data)
+    })
+  })
 }
-const _post = (url, datas, success, error = errorCallback) => {
-  let sqDatas = qs.stringify(datas)
-  axios.post(url, sqDatas).then(success).catch(error)
+// post
+const _post = (url, datas) => {
+  let sqDatas = ''
+  if (datas) {
+    sqDatas = qs.stringify(datas)
+  }
+
+  return new Promise((resolve, reject) => {
+    axios.post(url, sqDatas).then((rep) => {
+      resolve(rep.data)
+      // 依据不同请求数据情况，给出不同公共处理逻辑，下面给出一个示例：
+      // if (rep.data.code === 200) {
+      //   resolve(rep.data)
+      // } else {
+      //   Vue.$layout.msg(rep.data.msg || '数据错误！')
+      // }
+    }).catch((error) => {
+      errorCallback(error)
+      reject(error.response.data)
+    })
+  })
 }
-const _delete = (url, datas, success, error = errorCallback) => {
-  axios.delete(url, datas).then(success).catch(error)
+// delete
+const _delete = (url, datas) => {
+  let sqDatas = ''
+  if (datas) {
+    sqDatas = qs.stringify(datas)
+    url += '?' + sqDatas
+  }
+  return new Promise((resolve, reject) => {
+    axios.delete(url).then((rep) => {
+      resolve(rep.data)
+    }).catch((error) => {
+      errorCallback(error)
+      reject(error.response.data)
+    })
+  })
 }
-const _put = (url, datas, success, error = errorCallback) => {
-  axios.put(url, datas).then(success).catch(error)
+// put
+const _put = (url, datas) => {
+  let sqDatas = ''
+  if (datas) {
+    sqDatas = qs.stringify(datas)
+  }
+
+  return new Promise((resolve, reject) => {
+    axios.put(url, sqDatas).then((rep) => {
+      resolve(rep.data)
+    }).catch((error) => {
+      errorCallback(error)
+      reject(error.response.data)
+    })
+  })
 }
-const _patch = (url, datas, success, error = errorCallback) => {
-  axios.patch(url, datas).then(success).catch(error)
+// patch
+const _patch = (url, datas) => {
+  let sqDatas = ''
+  if (datas) {
+    sqDatas = qs.stringify(datas)
+  }
+
+  return new Promise((resolve, reject) => {
+    axios.patch(url, sqDatas).then((rep) => {
+      resolve(rep.data)
+    }).catch((error) => {
+      errorCallback(error)
+      reject(error.response.data)
+    })
+  })
 }
 
 export default {
