@@ -53,14 +53,11 @@ export default {
         $vmLayer.show = layout.isMsgShow = false
         $vmLayer.msg = ''
       },
-      isLoadingShow: $vmLoading.show,
       loading () {
         $vmLoading.show = true
-        layout.isLoadingShow = true
       },
       loadingHide () {
         $vmLoading.show = false
-        layout.isLoadingShow = false
       },
       confirm (opts) {
         $vmConfirm.msg = opts.content

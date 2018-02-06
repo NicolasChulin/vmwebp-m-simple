@@ -31,7 +31,7 @@ axios.interceptors.request.use(function (config) {
       Vue.$layout.loading()
     }, 200)
   }
-  requeen.push(Math.random())
+  requeen.push(1)
 
   if (config.url.indexOf('http://') < 0) {
     config.url = GLOBAL.domain + config.url
@@ -49,6 +49,7 @@ axios.interceptors.response.use(function (response) {
     if (sett) clearTimeout(sett)
     Vue.$layout.loadingHide()
   }
+
   if (response.status === 200 && response.data && response.data.code === 403) {
     Vue.$layout.msg('会话已过期，请重新登录！')
     // router.push({name: 'Login'})

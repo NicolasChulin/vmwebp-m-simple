@@ -30,11 +30,22 @@ export default {
   },
   methods: {
     say () {
+      // this.$layout.confirm({
+      //   content: '这是一个确认框',
+      //   confirmName: '确定',
+      //   cancelName: '取消',
+      //   confirmed () {
+      //     console.log('confirm')
+      //   }
+      // })
+      // this.$layout.msg('hh')
       homeApi.banners({
         count: 5,
         site: 4
-      }).then((rep) => {
-        console.log(rep)
+      }).then((data) => {
+        console.log(data)
+      }).catch((error) => {
+        console.log(error)
       })
     }
   }

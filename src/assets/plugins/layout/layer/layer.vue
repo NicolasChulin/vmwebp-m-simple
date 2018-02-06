@@ -1,8 +1,10 @@
 <template lang="html">
-  <div class="layout-container" v-if="show">
-    <div class="layout-content">
-      <div class="layout-msg" :class="{'bounceIn': show}">
-        {{msg}}
+  <div class="layout-msg">
+    <div class="layout-container" v-if="show">
+      <div class="layout-content">
+        <div class="layout-message" :class="{'bounceIn': show}">
+          {{msg}}
+        </div>
       </div>
     </div>
   </div>
@@ -11,17 +13,27 @@
 <script>
 export default {
   name: 'layout-msg',
-  props: {
-    show: false,
-    msg: {
-      type: String,
-      default: ''
+  data () {
+    return {
+      show: false,
+      msg: {
+        type: String,
+        default: ''
+      }
     }
   }
 }
 </script>
 
 <style lang="css" scoped>
+.layout-container{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 99999;
+}
 .layout-content{
   position: fixed;
   left: 50%;
@@ -32,7 +44,7 @@ export default {
   overflow: hidden;
   z-index: 99999;
 }
-.layout-msg{
+.layout-message{
   padding: 10px 20px;
   line-height: 22px;
   color: #fff;

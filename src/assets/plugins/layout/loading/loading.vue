@@ -1,7 +1,9 @@
 <template lang="html">
-  <div class="layout-loading" v-if="show">
-    <div class="loading-back" :class="{'bounceIn': show}">
-      <img src="/static/images/layout-loading.gif" alt="loading">
+  <div class="layout-loading">
+    <div class="layout-container" v-if="show">
+      <div class="loading-back" :class="{'bounceIn': show}">
+        <img src="/static/images/layout-loading.gif" alt="loading">
+      </div>
     </div>
   </div>
 </template>
@@ -9,13 +11,28 @@
 <script>
 export default {
   name: 'layout-loading',
-  props: {
-    show: false
+  data () {
+    return {
+      show: false
+    }
+  },
+  methods: {
+    close () {
+      this.show = false
+    }
   }
 }
 </script>
 
 <style lang="css" scoped>
+.layout-container{
+  /*position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 99998;*/
+}
 .loading-back{
   position: fixed;
   width: 80px;
@@ -27,7 +44,7 @@ export default {
   top: 50%;
   margin-left: -50px;
   margin-top: -50px;
-  z-index: 99999;
+  z-index: 99998;
 }
 .loading-back img{
   display: block;

@@ -1,16 +1,18 @@
 <template lang="html">
-  <div class="layout-container" v-if="show">
-    <div class="layout-content">
-      <div class="layout-main" :class="{'zoomIn': show}">
-        <div class="layout-title" v-if="titleShow">
-          信息确认
-        </div>
-        <div class="layout-msg">
-          {{msg}}
-        </div>
-        <div class="layout-btns">
-          <span @click="confirm">{{btnConfirmName}}</span>
-          <span class="btn-bold" @click="cancel">{{btnCancelName}}</span>
+  <div class="layout-confirm">
+    <div class="layout-container" v-if="show">
+      <div class="layout-content">
+        <div class="layout-main" :class="{'zoomIn': show}">
+          <div class="layout-title" v-if="titleShow">
+            信息确认
+          </div>
+          <div class="layout-message">
+            {{msg}}
+          </div>
+          <div class="layout-btns">
+            <span @click="confirm">{{btnConfirmName}}</span>
+            <span class="btn-bold" @click="cancel">{{btnCancelName}}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -19,6 +21,7 @@
 
 <script>
 export default {
+  name: 'layout-confirm',
   data () {
     return {
       show: false,
@@ -70,7 +73,7 @@ export default {
   box-shadow: 0 0 5px #808080;
   border-radius: 5px;
 }
-.layout-msg{
+.layout-message{
   padding: 20px;
   color: #333;
 }
@@ -92,6 +95,7 @@ export default {
   line-height: 30px;
   border-right: 1px solid #e0e0e0;
   cursor: pointer;
+  box-sizing: border-box;
 }
 .layout-btns span.btn-bold{
   font-weight: bold;

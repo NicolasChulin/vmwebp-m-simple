@@ -5,6 +5,6 @@ export default {
     return api._post('/look/list', datas)
   },
   banners (datas) {
-    return api._post('/banner/v1/list', datas)
+    return api._post('/banner/v1/lists', datas)
   }
 }
