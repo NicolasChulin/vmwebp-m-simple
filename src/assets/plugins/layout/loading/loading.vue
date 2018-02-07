@@ -16,6 +16,11 @@ export default {
       show: false
     }
   },
+  // watch: {
+  //   show (val, oldval) {
+  //     console.log(val)
+  //   }
+  // },
   methods: {
     close () {
       this.show = false
@@ -26,12 +31,12 @@ export default {
 
 <style lang="css" scoped>
 .layout-container{
-  /*position: fixed;
+  position: fixed;
   width: 100%;
   height: 100%;
   left: 0;
   top: 0;
-  z-index: 99998;*/
+  z-index: 99998;
 }
 .loading-back{
   position: fixed;

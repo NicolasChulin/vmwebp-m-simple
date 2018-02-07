@@ -37,11 +37,10 @@ export default {
 
     $vmLayer.t = ''
     let layout = {
-      isMsgShow: $vmLayer.show,
       msg (text, duringTime = 1500) {
         layout.msgHide()
         setTimeout(() => {
-          $vmLayer.show = layout.isMsgShow = true
+          $vmLayer.show = true
           $vmLayer.msg = text
           $vmLayer.t = setTimeout(() => {
             layout.msgHide()
@@ -50,7 +49,7 @@ export default {
       },
       msgHide () {
         if ($vmLayer.t) clearTimeout($vmLayer.t)
-        $vmLayer.show = layout.isMsgShow = false
+        $vmLayer.show = false
         $vmLayer.msg = ''
       },
       loading () {

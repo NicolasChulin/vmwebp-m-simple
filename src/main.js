@@ -27,9 +27,7 @@ var requeen = []
 var sett = ''
 axios.interceptors.request.use(function (config) {
   if (requeen.length === 0) {
-    sett = setTimeout(function () {
-      Vue.$layout.loading()
-    }, 200)
+    Vue.$layout.loading()
   }
   requeen.push(1)
 
